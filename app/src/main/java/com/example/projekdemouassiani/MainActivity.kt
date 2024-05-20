@@ -1,16 +1,19 @@
 package com.example.projekdemouassiani
 
-import android.app.Activity
 import android.os.Bundle
-import android.widget.Button
-import android.widget.ImageView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import android.content.Intent
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var listWisata :ArrayList<ItemData>
+    private lateinit var wisataAdapter: MyAdapter
+    private lateinit var wisataRecyclerView: RecyclerView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -21,23 +24,23 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-        val btnUpload = findViewById<Button>(R.id.btn_upload)
-        val image = findViewById<ImageView>(R.id.ivupload)
+        wisataRecyclerView = findViewById(R.id.wisatarv)
+        listWisata = ArrayList()
 
-        btnUpload.setOnClickListener {
-            Intent(Intent.ACTION_GET_CONTENT).also {
-                it.type = "image/*"
-                startActivityForResult(it, 0)
-            }
-        }
-    }
+        listWisata.add(ItemData(R.drawable.jembatanmerah, "Jembatan Merah"))
+        listWisata.add(ItemData(R.drawable.bukitteletubis, "Bukit Teletubis"))
+        listWisata.add(ItemData(R.drawable.danaulove, "Danau Love"))
+        listWisata.add(ItemData(R.drawable.danausentani, "Danau Sentani"))
+        listWisata.add(ItemData(R.drawable.jprcity, "Puncak Jayapura City"))
+        listWisata.add(ItemData(R.drawable.pasirenam, "Pantai Pasir 6"))
+        listWisata.add(ItemData(R.drawable.tablanusu, "Pantai Tablanusu"))
+        listWisata.add(ItemData(R.drawable.telukyotefa, "Teluk Youtefa"))
+        listWisata.add(ItemData(R.drawable.terjuncyclop, "Air Terjun Cycloop"))
+        listWisata.add(ItemData(R.drawable.kalbir, "Kali Biru Genyem"))
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if (resultCode == Activity.RESULT_OK && requestCode == 0) {
-            val uri = data?.data
-            val image = findViewById<ImageView>(R.id.ivupload)
-            image.setImageURI(uri)
-        }
+        wisataRecyclerView.layoutManager = LinearLayoutManager(this)
+        wisataRecyclerView.setHasFixedSize(true)
+        wisataAdapter = MyAdapter(listWisata)
+        wisataRecyclerView.adapter = wisataAdapter
     }
 }
