@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="10dp"
+    android:background="@color/white"
+    tools:context=".DetailActivity">
+
+    <TextView
+        android:id="@+id/tvdetailjudul"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Judul"
+        android:layout_gravity="center"
+        android:textSize="35dp"
+        android:layout_marginTop="50dp"
+        android:textStyle="bold"/>
+
+    <ImageView
+        android:id="@+id/ivdetailimage"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:layout_marginTop="30dp"
+        android:src="@mipmap/ic_launcher"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true">
+
+        <TextView
+            android:id="@+id/tvdescdetail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Bosan dengan suasana kota yang padat merayap serta kebisingan dari pagi sampai malam tiba? punya rencana untuk memanjakan mata? tidak ada salahnya berkunjung ke wisata danau Imfote. Berada di daerah Jayapura, dan masih belum banyak yang tahu terkait informasi keindahannya.
+Sepanjang jalan, mata akan dimanjakan dengan bentangan padang rumput hijau yang elok dilihat. Setelah sampai di lokasi jangan lupa untuk berfoto dengan latar dan juga anggle terbaik Anda. Mlipir sambil membawa bekal dan juga tikar, asik untuk dilakukan sembari menikmati panorama sekitar danau."
+            android:padding="30dp"
+            android:textColor="@color/black" />
+    </ScrollView>
+</LinearLayout>
